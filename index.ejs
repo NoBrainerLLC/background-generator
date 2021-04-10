@@ -1,0 +1,30 @@
+<% layout('./layouts/boilerplate') %> 
+    <h1>Fields</h1>
+    <div>
+      <form action="/field"class="d-flex" id="searchForm">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="name">
+          <button class="btn btn-outline-success">Search</button>
+          <a href="/field">Reset</a>
+        </form>
+   </div> 
+    <% for( let i = 0; i < fields.length; i++ ) { %>
+        <div class="card col-6 offset-3">
+        <div class="col-6 offset-3 mb-3" style="width: 28rem;">
+        <% for( let j = 0; j < fields[i].tag.length; j++ ) { %>
+          <% if (fields[i].tag.length>j) { %>
+            <h1 class="card-text"><%= fields[i].tag[j].name %></h1> 
+            <% } else { %>
+                <h2 class="card-text"> <%= fields[i].tag[j-1].name %></h2>
+          <% } %>
+        <% } %>
+        <% for( let j = 0; j < fields[i].compartment.length; j++ ) { %>
+        <% fields[i].compartment[j].name %> 
+        <% } %>
+        <% for( let i = 0; i < fields.length; i++ ) { %>
+            <p class="card-title"><%= fields[i].name %> </p> 
+            <% } %> 
+        <a href="#" class="card-link">Card link</a>
+         <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+      <% } %>
